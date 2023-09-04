@@ -1,24 +1,12 @@
 function diagonalDifference(arr) {
-    // Write your code here
-    let primaryD=0;
-    let secondaryD=0;
-    
-    for(let i=0; i<=arr.length-1 ; i++) {
-        for(let j=0; j<=arr[i].length-1; j++){
-            if(i===j){
-                
-                primaryD+=arr[i][j];
-            }
-            if(i+j === (arr.length-1)){
-                console.log(arr[i][j]);
-                secondaryD+=arr[i][j];
-            }
+    let primaryDiagonal = 0;
+    let secondaryDiagonal = 0;
+    for (let i = 0; i < arr.length; i++) {
+    primaryDiagonal += arr[i][i];
+    secondaryDiagonal += arr[i][arr.length - 1 - i];
+  }
 
-        }
-    }
-    
-    return Math.abs(primaryD-secondaryD);
-
+  return Math.abs(primaryDiagonal - secondaryDiagonal);
 }
 
 //console.log(diagonalDifference([[11,2,4],[4,5,6],[10,8,-12]]));
